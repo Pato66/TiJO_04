@@ -42,25 +42,46 @@ describe('app', function () {
         it('should return string of value between numberFor and numberTo when arguments of function numberFor is more than numberTo', function() {
             expect(app.getDescendingNumbers(12,10)).toEqual("12 11 10");
         });
+        it('should return string of value between numberFor and numberTo when arguments of function numberFor is more than numberTo', function() {
+            expect(app.getDescendingNumbers(15,10)).toEqual("15 14 13 12 11 10");
+        });
         it('should return false when arguments of function numberFor is equal to numberTo', function() {
             expect(app.getDescendingNumbers(10,10)).toEqual(false);
         });
-        it('should return two values in string when arguments of function numberFor more about one than numberTo', function() {
+        it('should return two values in string when arguments of function numberFor is larger by one than numberTo', function() {
             expect(app.getDescendingNumbers(11,10)).toEqual("11 10");
         });
+    });
     describe('areaOfTrapezoid function', function() {
         it('should return false when a is less than zero', function() {
             expect(app.areaOfTrapezoid(-3,2,3).toEqual(false));
-        })
+        });
         it('should return false when b is less than zero', function() {
             expect(app.areaOfTrapezoid(3,-2,3).toEqual(false));
-        })
+        });
         it('should return false when h is less than zero', function() {
             expect(app.areaOfTrapezoid(3,2,-3).toEqual(false));
-        })
+        });
+        it('should return false when h and a are less than zero', function() {
+            expect(app.areaOfTrapezoid(-3,2,-3).toEqual(false));
+        });
+        it('should return false when h and b are less than zero', function() {
+            expect(app.areaOfTrapezoid(3,-2,-3).toEqual(false));
+        });
+        it('should return false when a and b less than zero', function() {
+            expect(app.areaOfTrapezoid(-3,-2,3).toEqual(false));
+        });
+        it('should return false when a and b and h are less than zero', function() {
+            expect(app.areaOfTrapezoid(-3,-2,-3).toEqual(false));
+        });
+        it('should return area of a triangle', function() {
+            expect(app.areaOfTrapezoid(3,2,4).toEqual(10));
+            expect(app.areaOfTrapezoid(1,2,0).toEqual(0));
+            expect(app.areaOfTrapezoid(5,7,6).toEqual(105));
+        });
     });
+    //------------------------------------------------------------------------------------------------------------------
 
 
 
-    });
 });
