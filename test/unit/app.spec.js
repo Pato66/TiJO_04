@@ -118,7 +118,7 @@ describe('app', function () {
             expect(app.squareOdd(2).toEqual(false));
             expect(app.squareOdd(true).toEqual(false));
             expect(app.squareOdd("jakis napis").toEqual(false));
-        })
+        });
 
     });
 });
