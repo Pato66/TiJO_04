@@ -52,7 +52,7 @@ describe('app', function () {
             expect(app.getDescendingNumbers(11,10)).toEqual("11 10");
         });
     });
-    describe('areaOfTrapezoid function', function() {
+    xdescribe('areaOfTrapezoid function', function() {
         it('should return false when a is less than zero', function() {
             expect(app.areaOfTrapezoid(-3,2,3).toEqual(false));
         });
@@ -81,7 +81,44 @@ describe('app', function () {
         });
     });
     //------------------------------------------------------------------------------------------------------------------
+    xdescribe('maxArray function', function() {
+        it('should return the largest number in array', function(){
+            expect(app.maxArray([2,3,7,5]).toEqual(7));
+            expect(app.maxArray([8,7,6,5,4,3,2,1,0,-9,-11]).toEqual(8));
+            expect(app.maxArray([20,3,7,50,16,49]).toEqual(50));
+        });
+        it('should return false when array will have string type',function(){
+           expect(app.maxArray(['Jan','Adam','Michał']).toEqual(false));
+        });
+        it('should return false when array will have any element of string type',function(){
+            expect(app.maxArray([1,'2',3]).toEqual(false));
+        });
+        it('should return false when argument is another type than the array', function(){
+            expect(app.maxArray(2).toEqual(false));
+            expect(app.maxArray("jakis napis").toEqual(false));
+            expect(app.maxArray(true).toEqual(false));
+        });
+    });
 
+    describe('squareOdd function', function(){
+        it('should return a new array where the odd numbers were squared', function(){
+            expect(app.squareOdd([2,3,4,5,6]).toEqual([2,9,4,25,6]));
+            expect(app.squareOdd([3,4,5,10,11]).toEqual([9,4,25,10,121]));
+            expect(app.squareOdd([2,4,6]).toEqual([2,4,6]));
+            expect(app.squareOdd([5,7,9,11]).toEqual([25,49,81,121]));
+            expect(app.squareOdd([5,'7',9,11]).toEqual([25,'7',81,121]));
+            expect(app.squareOdd(['5','7','9','11']).toEqual(['5','7','9','11']));
+        });
+        it('should return false when element of array is another type than allowed', function(){
+            expect(app.squareOdd([2,3,4,true,7]).toEqual(false));
+            expect(app.squareOdd([2,3,4,null,7]).toEqual(false));
+            expect(app.squareOdd([2,3,4,[5,6],7]).toEqual(false));
+        });
+        it('should return false when argument of function is wrong type', function(){
+            expect(app.squareOdd(2).toEqual(false));
+            expect(app.squareOdd(true).toEqual(false));
+            expect(app.squareOdd("jakis napis").toEqual(false));
+        })
 
-
+    });
 });
